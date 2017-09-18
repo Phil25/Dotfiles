@@ -1,2 +1,1 @@
-# Dotfiles
-My Linux dotfiles.
+My config files. Nothing more to expect.
