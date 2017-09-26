@@ -7,7 +7,14 @@
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="6"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/wp1.jpg"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/wp4.png"/>
+          <property name="backdrop-cycle-enable" type="bool" value="false"/>
+          <property name="color1" type="array">
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="65535"/>
+          </property>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="0"/>
@@ -29,7 +36,7 @@
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/wp2.jpg"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/wp5.jpg"/>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="0"/>

@@ -84,13 +84,14 @@
     <property name="plugin-12" type="string" value="datetime"/>
     <property name="plugin-2" type="string" value="systray">
       <property name="names-visible" type="array">
-        <value type="string" value="telegramdesktop"/>
         <value type="string" value="thunar"/>
-        <value type="string" value="qbittorrent"/>
-        <value type="string" value="telegram-desktop"/>
         <value type="string" value="task manager"/>
+        <value type="string" value="telegramdesktop"/>
+        <value type="string" value="qbittorrent"/>
         <value type="string" value="steam"/>
+        <value type="string" value="telegram-desktop"/>
         <value type="string" value="pamac-tray"/>
+        <value type="string" value="hp-systray"/>
       </property>
       <property name="show-frame" type="bool" value="false"/>
       <property name="size-max" type="uint" value="24"/>
@@ -106,6 +107,8 @@
       <property name="expand" type="bool" value="false"/>
       <property name="style" type="uint" value="1"/>
     </property>
-    <property name="plugin-17" type="string" value="separator"/>
+    <property name="plugin-17" type="string" value="separator">
+      <property name="style" type="uint" value="1"/>
+    </property>
   </property>
 </channel>
