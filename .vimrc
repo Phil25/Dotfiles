@@ -15,6 +15,14 @@ let g:ycm_server_python_interpreter = '/usr/bin/python2'
 let g:ycm_key_invoke_completion = '<C-b>'
 hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
+hi TabLineFill ctermbg=NONE term=NONE
+hi TabLine ctermfg=7 ctermbg=NONE term=NONE
+
+" allow recursive searching
+set path+=**
+
+map <F3> :tabp<cr>
+map <F4> :tabn<cr>
 
 set timeoutlen=1000
 set ttimeoutlen=0
