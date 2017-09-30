@@ -1,5 +1,5 @@
 favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-web-browser.desktop,pamac-manager.desktop,telegramdesktop.desktop,steam-native.desktop,filezilla.desktop,qbittorrent.desktop
-recent=exo-file-manager.desktop,steam-native.desktop,exo-web-browser.desktop,xfce-session-settings.desktop,filezilla.desktop,qbittorrent.desktop,pamac-manager.desktop,xfce-keyboard-settings.desktop,exo-terminal-emulator.desktop,system-config-printer.desktop
+recent=exo-file-manager.desktop,exo-web-browser.desktop,steam-native.desktop,qbittorrent.desktop,libreoffice-writer.desktop,hplip.desktop,xfce4-screenshooter.desktop,system-config-printer.desktop,cups.desktop,pamac-manager.desktop
 button-title=Applications
 button-icon=distributor-logo-archlinux
 button-single-row=false

@@ -1,6 +1,6 @@
 delay=3
-region=3
-action=2
+region=2
+action=3
 show_mouse=0
 screenshot_dir=file:/home/phil
 app=feh

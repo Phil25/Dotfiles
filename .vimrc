@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'withgod/vim-sourcepawn.git'
+Plugin 'smcomp'
 Plugin 'yuttie/comfortable-motion.vim'
 call vundle#end()
 filetype plugin indent on
@@ -50,4 +51,5 @@ set lbr
 set ai
 
 " compile sourcepawn plugin when in scripting dir and move to plugins dir
+au FileType sourcepawn map <F5> :! ~/.vim/bundle/smcomp/comp.sh % c<cr>
 au FileType sourcepawn map <F6> :! ./spcomp %<cr>:!mv '%:t:r'.smx ../plugins/<cr>

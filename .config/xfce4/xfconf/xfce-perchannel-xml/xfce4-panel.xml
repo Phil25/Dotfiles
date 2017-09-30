@@ -91,6 +91,7 @@
         <value type="string" value="steam"/>
         <value type="string" value="telegram-desktop"/>
         <value type="string" value="pamac-tray"/>
+        <value type="string" value="scp-dbus-service.py"/>
         <value type="string" value="hp-systray"/>
       </property>
       <property name="show-frame" type="bool" value="false"/>
