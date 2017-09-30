@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Swapcaps
+Comment=Swap Caps Lock key with Escape key
+Path=/usr/bin/
+Exec=setxkbmap -option "caps:swapescape"
+Terminal=false
