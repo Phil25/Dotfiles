@@ -12,7 +12,7 @@ if [ $MODE == "out" -o $MODE == "o" ]; then
 else
 	cp ~/.{bash_profile,vimrc,xinitrc} .
 	cp -r ~/.config/{gtk-2.0,gtk-3.0,xfce4,autostart} ./.config/
-	cp -r ~/.vim/bundle/smcomp ./.vim/bundle/smcomp/
+	cp -r ~/.vim/bundle/smcomp/comp.sh ./.vim/bundle/smcomp/
 	echo "Dotfiles imported to `pwd`."
 fi
 
