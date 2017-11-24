@@ -27,7 +27,7 @@ FontUseSystem=TRUE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.850000
 ColorForeground=#5e5dd0d0fdfd
-ColorBackground=#000001013030
+ColorBackground=#111111111111
 ColorPalette=#000000;#cd0000;#00cd00;#cdcd00;#0000cd;#cd00cd;#00cdcd;#e5e5e5;#7f7f7f;#ff0000;#00ff00;#ffff00;#5c5cff;#ff00ff;#00ffff;#ffffff
 TabActivityColor=#01017676c6c6
 
