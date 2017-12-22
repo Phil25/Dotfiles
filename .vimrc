@@ -50,8 +50,8 @@ set shiftwidth=4
 set lbr
 
 " run custom scripts for various stuff
-map <F5> :! ./run.sh<cr>
-map <F6> :! ./compile.sh<cr>
+map <F5> :! ./run.sh "%"<cr>
+map <F6> :! ./compile.sh "%"<cr>
 
 let g:Tex_DefaultTargetFormat='pdf'
 
