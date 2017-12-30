@@ -31,7 +31,8 @@ font pango:Sans 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -e ranger
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -145,9 +146,8 @@ assign [class="qBittorrent"] $ws5
 assign [class="Eclipse"] $ws6
 assign [class="Filezilla"] $ws7
 
-# disable chromium border
-for_window [class="Chromium"] border none
-for_window [class="Eclipse"] border none
+# border stuff
+for_window [class="^.*"] border pixel 2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -156,43 +156,17 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-#bindsym $mod+r mode "resize"
-
 # my colors
-#set $bg-color			#6d7078
+#set $bg-color				#6d7078
 #set $inactive-bg-color		#2f343f
-#set $text-color		#f3f4f5
+#set $text-color			#f3f4f5
 #set $inactive-text-color	#676E7D
 #set $urgent-bg-color		#E53935
 
 # background generated
-set $bg-color			#0176c6
+set $bg-color				#0176c6
 set $inactive-bg-color		#000130
-set $text-color			#5ed0fd
+set $text-color				#5ed0fd
 set $inactive-text-color	#5ed0fd
 set $urgent-bg-color		#ffffff
 
@@ -221,8 +195,8 @@ bar {
 	status_command ~/.config/bumblebee-status/bumblebee-status -m amixer brightness disk nic publicip battery layout time date -p brightness.step="5" disk.path=/home disk.format="{left}" nic.exclude="lo,enp0s25,enp3s0f2" time.format="%H:%M:%S" date.format="%a, %d %b %Y" -t my-powerline
 	#datetime.format="%H:%M:%S on %a, %d %b %Y"
 	colors{
-		#			border			background		text
-		focused_workspace	$bg-color		$bg-color		$text-color
+		#					border				background			text
+		focused_workspace	$bg-color			$bg-color			$text-color
 		inactive_workspace	$inactive-bg-color	$inactive-bg-color	$inactive-text-color
 		urgent_workspace	$urgent-bg-color	$urgent-bg-color	$text-clor
 	}
@@ -236,8 +210,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86TouchpadToggle exec synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
 
-gaps inner 10
-gaps outer 10
+gaps inner 5
+gaps outer 5
 
 smart_gaps on
 
