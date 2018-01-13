@@ -1,9 +1,0 @@
-cd /home/phil/.config/ranger
-q
-open_with 
-open_with 2
-open_with 1
-search 10
-search 2
-delete
-search .con

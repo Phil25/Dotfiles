@@ -1,3 +1,6 @@
+xterm*dynamicColors: true
+URxvt*dyanmiccolors: on
+
 URxvt*font: xft:monospace:size=10
 URxvt*scrollBar: false
 URxvt*urgentOnBell: false
@@ -5,9 +8,13 @@ URxvt*cursorBlink: true
 !URxvt*transparent: true
 !URxvt*shading: 10
 !URxvt*blurRadius: 25
-!URxvt*depth: 32
+URxvt*depth: 32
 URxvt*saveLines: 65535
 
+!URxvt.keysym.C-1: command:\033]11;rgba:2100/2300/2400/dd00\007
+!URxvt.keysym.C-2: command:\033]11;#151718\007
+!URxvt*background:					  rgba:0000/0000/0200/c800
+!URxvt*background:                     rgba:2100/2300/2400/dd00
 URxvt*background:                     #151718
 URxvt*foreground:                     #d6d6d6
 URxvt*cursorColor:                    #d6d6d6

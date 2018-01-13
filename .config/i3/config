@@ -72,10 +72,11 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # resize with mod + keypad
-bindsym $mod+a resize shrink width 10 px or 10 ppt
-bindsym $mod+s resize shrink height 10 px or 10 ppt
-bindsym $mod+d resize grow width 10 px or 10 ppt
-bindsym $mod+w resize grow height 10 px or 10 ppt
+set $resize_speed 8
+bindsym $mod+a resize shrink width $resize_speed px or $resize_speed ppt
+bindsym $mod+s resize shrink height $resize_speed px or $resize_speed ppt
+bindsym $mod+d resize grow width $resize_speed px or $resize_speed ppt
+bindsym $mod+w resize grow height $resize_speed px or $resize_speed ppt
 
 # split in horizontal orientation
 bindsym $mod+Shift+v split h
@@ -85,6 +86,9 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+# toggle tiling/floating
+bindsym $mod+Shift+f floating toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+q layout stacking
@@ -144,10 +148,12 @@ assign [class="Steam"] $ws3
 assign [class="TelegramDesktop"] $ws4
 assign [class="qBittorrent"] $ws5
 assign [class="Eclipse"] $ws6
+assign [class="jetbrains-idea"] $ws6
 assign [class="Filezilla"] $ws7
 
 # border stuff
 for_window [class="^.*"] border pixel 2
+hide_edge_borders both
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -155,6 +161,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# applications
+#bindsym $mod+
 
 # my colors
 #set $bg-color				#6d7078
@@ -185,8 +194,6 @@ client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-col
 client.urgent		$urgent-bg-color	$urgent-bg-color	$text-color		#00ff00
 client.placeholder	$bg-color		$bg-color		$text-color		#00ff00
 
-hide_edge_borders both
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -204,19 +211,22 @@ bar {
 	strip_workspace_numbers yes
 }
 
+# Media buttons
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86TouchpadToggle exec synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
 
+# Gaps
 gaps inner 5
 gaps outer 5
-
 smart_gaps on
 
+# Background
 set $bg /usr/share/backgrounds/wp2.png
 
+# Init
 exec_always compton -f -C -r 30
 exec_always feh --bg-scale "$bg"
 exec_always --no-startup-id ~/.config/polybar/launch.sh

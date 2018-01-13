@@ -19,6 +19,11 @@ alias ..="cd .."
 alias t="touch"
 alias r="rm -iv"
 
+mkcd(){
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+
 alias search="pacman -Ss"
 alias searcha="yaourt -Ss"
 alias install="sudo pacman -S"
@@ -28,4 +33,5 @@ alias uinstalla="yaourt -Rns"
 alias uninstall="uinstall"
 alias uninstalla="uinstalla"
 
-export PS1="\[$(tput setaf 1)\]┌╼ \[$(tput bold)\]\[$(tput setaf 2)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└─╼\"; else echo \"\[$(tput setaf 1)\]└─╼\"; fi) \[$(tput setaf 7)\]\[$(tput sgr0)\]"
+#export PS1="\[$(tput setaf 1)\]┌╼ \[$(tput bold)\]\[$(tput setaf 2)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└─╼\"; else echo \"\[$(tput setaf 1)\]└─╼\"; fi) \[$(tput setaf 7)\]\[$(tput sgr0)\]"
+export PS1="\[$(tput setaf 1)\]┌╼ \[$(tput bold)\]\[$(tput setaf 2)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]╼\"; else echo \"\[$(tput setaf 1)\]╼\"; fi) \[$(tput setaf 7)\]\[$(tput sgr0)\]"
