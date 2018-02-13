@@ -15,6 +15,14 @@ let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
 let g:ycm_key_invoke_completion = '<C-b>'
 
+" multiple file management
+"autocmd vimenter * NERDTree
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+map <C-n> :NERDTreeToggle<CR>
+
 " colors
 "hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 "hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE

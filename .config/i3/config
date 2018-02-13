@@ -33,6 +33,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt -e ranger
+bindsym $mod+Control+Return exec "~/.config/i3/clone_terminal.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill

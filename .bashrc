@@ -19,10 +19,19 @@ alias ..="cd .."
 alias t="touch"
 alias r="rm -iv"
 
+# create a directory and enter it
 mkcd(){
     mkdir -p -- "$1" &&
       cd -P -- "$1"
 }
+
+# open new terminal with same pwd
+clone(){
+	DIR=`pwd`
+	nohup urxvt -cd "$DIR" &>/dev/null &
+	disown
+}
+alias cln="clone"
 
 alias search="pacman -Ss"
 alias searcha="yaourt -Ss"
