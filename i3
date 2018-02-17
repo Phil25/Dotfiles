@@ -195,29 +195,21 @@ client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-col
 client.urgent		$urgent-bg-color	$urgent-bg-color	$text-color		#00ff00
 client.placeholder	$bg-color		$bg-color		$text-color		#00ff00
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	#status_command ~/.config/i3/bar.sh
-	#status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	status_command ~/.config/bumblebee-status/bumblebee-status -m amixer brightness disk nic publicip battery layout time date -p brightness.step="5" disk.path=/home disk.format="{left}" nic.exclude="lo,enp0s25,enp3s0f2" time.format="%H:%M:%S" date.format="%a, %d %b %Y" -t my-powerline
-	#datetime.format="%H:%M:%S on %a, %d %b %Y"
-	colors{
-		#					border				background			text
-		focused_workspace	$bg-color			$bg-color			$text-color
-		inactive_workspace	$inactive-bg-color	$inactive-bg-color	$inactive-text-color
-		urgent_workspace	$urgent-bg-color	$urgent-bg-color	$text-clor
-	}
-	position top
-	strip_workspace_numbers yes
-}
-
 # Media buttons
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+
+bindsym XF86AudioMute exec --no-startup-id amixer set Master 1+ toggle
+bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
+
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-bindsym XF86TouchpadToggle exec synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+
+bindsym XF86TouchpadToggle exec "~/.config/i3/touchpad_toggle.sh"
+#bindsym XF86TouchpadToggle exec synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+
+#ThinkVantage key
+#bindsym XF86Launch1
 
 # Gaps
 gaps inner 5
@@ -225,11 +217,9 @@ gaps outer 5
 smart_gaps on
 
 # Background
-set $bg /usr/share/backgrounds/wp2.png
+set $bg /usr/share/wallpapers/wp.jpg
 
 # Init
 exec_always compton -f -C -r 30
 exec_always feh --bg-scale "$bg"
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id chromium
-exec --no-startup-id xfce4-terminal
+exec_always --no-startup-id ~/.config/i3/polybar.sh &

@@ -1,0 +1,198 @@
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #888
+primary = #0166c6
+secondary = #e60053
+alert = #bd2c40
+prefix = #0x71f5
+
+[bar/main]
+monitor = ${env:MONITOR:LVDS-1}
+width = 100%
+height = 16
+padding = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=8;1"
+
+modules-left = i3
+modules-center = xwindow
+modules-right = filesystem backlight-custom battery volume xkeyboard wifi eth date
+separator = "│"
+
+tray-position = right
+tray-padding = 1
+tray-margin = 2
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix-foreground = ${colors.foreground-alt}
+label-layout = %layout%
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 60
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%{F-} %free%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-padding = 3
+
+label-unfocused = %name%
+label-unfocused-background = ${colors.background}
+label-unfocused-padding = 1
+
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+[module/backlight-custom]
+type = custom/script
+exec = ~/.config/polybar/backlight-custom.sh
+interval = 1
+format-prefix = "%{F#0a81f5}%{F-} "
+
+[module/wifi]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid% [%local_ip%]
+
+format-disconnected =
+
+ramp-signal-0 = D:
+ramp-signal-1 = ):
+ramp-signal-2 = :I
+ramp-signal-3 = :)
+ramp-signal-4 = :D
+ramp-signal-5 = !!
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp0s25
+interval = 3.0
+
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = ETH %local_ip%
+
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%d-%m-%Y, %a"
+time = %H:%M:%S
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+master-mixer = Master
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 17
+
+format-volume = <ramp-volume> <bar-volume>
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+label-volume-foreground = ${root.foreground}
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+label-muted =  x
+
+bar-volume-width = 20
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+bar-volume-indicator = I
+bar-volume-indicator-font = 1
+bar-volume-fill = I
+bar-volume-fill-font = 1
+bar-volume-empty = I
+bar-volume-empty-font = 1
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+ramp-capacity-0 = %{F#0a81f5}%{F-}
+ramp-capacity-1 = %{F#0a81f5}%{F-}
+ramp-capacity-2 = %{F#0a81f5}%{F-}
+ramp-capacity-3 = %{F#0a81f5}%{F-}
+ramp-capacity-4 = %{F#0a81f5}%{F-}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 500
+
+[settings]
+screenchange-reload = true

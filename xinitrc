@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -57,6 +41,4 @@ xterm -geometry 80x20+494-0 &
 xterm -geometry 80x66+0+0 -name login &
 unclutter &
 nm-applet &
-#xss-lock -- i3lock-fancy -t "███ █   █ █     ██ \n█ █ █   █ █   █ █ █\n███ ███ █ █     █ █\n█   █ █ █ ███ █ ██ " -f "DejaVu-Sans-Mono" &
 exec i3
-#exec startxfce4
