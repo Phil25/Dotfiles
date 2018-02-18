@@ -66,6 +66,9 @@ set shiftwidth=4
 " word line wrap
 set lbr
 
+" w!! saves any file regardless of starting vim with sudo
+cmap w!! w !sudo tee > /dev/null %
+
 " run custom scripts for various stuff
 map <F5> :! ./run.sh "%"<cr>
 map <F6> :! ./compile.sh "%"<cr>

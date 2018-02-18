@@ -1,0 +1,14 @@
+#systemctl enable lock.service
+
+[Unit]
+Description=lock
+Before=sleep.target
+
+[Service]
+User=phil
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/phil/.config/i3/lock.sh
+
+[Install]
+WantedBy=sleep.target

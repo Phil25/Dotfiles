@@ -2,11 +2,13 @@ bashrc				~/.bashrc
 gtk3.ini			~/.config/gtk-3.0/settings.ini
 clone_terminal.sh	~/.config/i3/clone_terminal.sh
 i3					~/.config/i3/config
+lock.sh				~/.config/i3/lock.sh
 i3_polybar.sh		~/.config/i3/polybar.sh
 touchpad_toggle.sh	~/.config/i3/touchpad_toggle.sh
 backlight_custom.sh	~/.config/polybar/backlight-custom.sh
 polybar				~/.config/polybar/config
 rofi				~/.config/rofi/config
+lock.service		~/.config/systemd/user/lock.service
 gtk2				~/.gtkrc-2.0
 inputrc				~/.inputrc
 ycm_extra_conf.py	~/.vim/ycm_extra_conf.py
