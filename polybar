@@ -131,7 +131,7 @@ type = internal/date
 interval = 1
 
 date = "%d-%m-%Y, %a"
-time = %H:%M:%S
+time = "%H:%M:%S "
 
 label = %date% %time%
 
