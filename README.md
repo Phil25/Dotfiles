@@ -2,17 +2,17 @@
 
 All files here are **not** how they appear in the system. Their paths are instead defined in the _manifest_ file.
 
-Using the _manifest_ file, the script _install.sh_ manages their distribution.
+Using the _manifest_ file, the script _update.sh_ manages their distribution.
 
 ### Distribution
 
 Dotfile distribution is defined in _manifest_. Its format is `<file> <path>`, per line.
 
-_path_ is the path of a **symlink** pointing to the _file_, which is relative to repo's directory.
+_path_ is the path of a **symlink** pointing to the _file_, which is relative to <repo>/files/ directory.
 
-### install.sh
+### update.sh
 
-The install script iterates lines of _manifest_ and handles multiple situations regarding _file_ and _path_:
+The update script iterates lines of _manifest_ and handles multiple situations regarding _file_ and _path_:
 
 1. None exist
 	* do nothing

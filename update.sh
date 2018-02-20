@@ -16,7 +16,7 @@ MAX=`cat manifest | wc -l`
 while read entry; do
 	_NAME=`echo $entry | cut -f1 -d " "`;
 	_PATH=`echo $entry | cut -f2 -d " "`;
-	_NAME=`pwd`/$_NAME
+	_NAME=`pwd`/files/$_NAME
 	_PATH=${_PATH/\~/$HOME}
 
 	echo ""

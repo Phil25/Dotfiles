@@ -21,6 +21,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias t="touch"
+alias g="grep"
 alias r="rm -Iv"
 
 # create a directory and enter it
