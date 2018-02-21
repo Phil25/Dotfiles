@@ -4,8 +4,10 @@ COL_LEN=26
 SEL=0
 LAST_LEN=$COL_LEN
 
-# list files in dual columns with indexes
-cd ./files/
+#get this script's directory regardless of executor's location
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $SCRIPT_DIR/files/
+
 for file in *; do
 	SEL=$((SEL+1));
 	BASENAME=`basename $file`
