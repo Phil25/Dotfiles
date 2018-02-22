@@ -13,6 +13,9 @@ NC='\033[0m' # No Color
 ID=1
 MAX=`cat manifest | wc -l`
 
+SKIPPED=0
+UPDATED=0
+
 while read entry; do
 	_NAME=`echo $entry | cut -f1 -d " "`;
 	_PATH=`echo $entry | cut -f2 -d " "`;
@@ -46,6 +49,7 @@ while read entry; do
 		# repo only exist
 		echo -e Symlinking ${C_FILE}$_PATH${NC} -\> ${C_FILE}$_NAME${NC}...
 		ln -s "$_NAME" "$_PATH"
+		UPDATED=$((UPDATED+1))
 
 	elif [ $SITUATION -eq 2 ]; then
 		# non-repo only exist
@@ -53,6 +57,7 @@ while read entry; do
 		mv "$_PATH" "$_NAME"
 		echo -e Symlinking ${C_FILE}$_PATH${NC} -\> ${C_FILE}$_NAME${NC}...
 		ln -s "$_NAME" "$_PATH"
+		UPDATED=$((UPDATED+1))
 
 	else
 		# both files exist
@@ -60,6 +65,7 @@ while read entry; do
 			# non-repo is already a symlink
 			if [ `readlink "$_PATH"` == "$_NAME" ]; then
 				echo -e "${C_FILE}$_PATH${NC} is a symlink to the same file, skipping..."
+				SKIPPED=$((SKIPPED+1))
 			else
 				echo -e "${C_FILE}$_PATH${NC} is a symlink to ${C_PATH}`readlink "$_PATH"`${NC}. Replace with ${C_FILE}$_NAME${NC}? [y/N]"
 				printf "Selecting: "
@@ -72,11 +78,14 @@ while read entry; do
 						mv "$_PATH" "$_PATH.backup"
 						echo -e Symlinking ${C_FILE}$_PATH${NC} -\> ${C_FILE}$_NAME${NC}...
 						ln -s "$_NAME" "$_PATH"
+						UPDATED=$((UPDATED+1))
 					else
 						echo Skipping...
+						SKIPPED=$((SKIPPED+1))
 					fi
 				else
 					echo Skipping...
+						SKIPPED=$((SKIPPED+1))
 				fi
 			fi
 		else
@@ -90,6 +99,7 @@ while read entry; do
 
 			if [ ! $OPTION ]; then
 				echo Skipping...
+				SKIPPED=$((SKIPPED+1))
 				continue
 			fi
 
@@ -100,6 +110,7 @@ while read entry; do
 				mv "$_PATH" "$_PATH.backup"
 				echo -e Symlinking ${C_FILE}$_PATH${NC} -\> ${C_FILE}$_NAME${NC}...
 				ln -s "$_NAME" "$_PATH"
+				UPDATED=$((UPDATED+1))
 				
 			elif [ $OPTION -eq 2 ]; then
 				# overiding repo
@@ -110,12 +121,17 @@ while read entry; do
 				mv "$_PATH" "$_NAME"
 				echo -e Symlinking ${C_FILE}$_PATH${NC} -\> ${C_FILE}$_NAME${NC}...
 				ln -s "$_NAME" "$_PATH"
+				UPDATED=$((UPDATED+1))
 
 			else
 				echo -e "${C_NUM}3${NC}"
 				echo -e Skipping
+				SKIPPED=$((SKIPPED+1))
 
 			fi
 		fi
 	fi
 done 3<&0 <manifest
+
+echo ""
+echo -e "${C_NUM}$UPDATED${NC} file(s) updated, ${C_NUM}$SKIPPED${NC} file(s) skipped."
