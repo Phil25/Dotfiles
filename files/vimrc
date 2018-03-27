@@ -17,6 +17,8 @@ syntax on
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
 let g:ycm_key_invoke_completion = '<C-b>'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " multiple file management
 nmap <silent> <C-k> :wincmd k<CR>
@@ -33,6 +35,11 @@ colorscheme angr
 
 " allow recursive searching
 set path+=**
+
+" enable powerline font integration
+"let g:airline_powerline_fonts = 1
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
 
 " tabs
 map <F3> :tabp<cr>
