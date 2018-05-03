@@ -76,6 +76,10 @@ get_python_inc(),
 './tests/gmock/include',
 '-isystem',
 './benchmarks/benchmark/include',
+'-isystem',
+'/usr/include/GL',
+'-isystem',
+'/usr/include/GLFW',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
