@@ -28,6 +28,8 @@ alias q="exit"
 alias ":q"="exit"
 
 alias reloadrc=". ~/.bashrc"
+alias reloadbash=". ~/.bashrc"
+alias reloadbashrc=". ~/.bashrc"
 
 # create a directory and enter it
 mkcd(){
@@ -49,6 +51,7 @@ search(){
 }
 alias install="yaourt -S"
 alias uninstall="yaourt -Rns"
+alias listfiles="yaourt -Ql"
 
 alias s="search"
 alias i="install"
