@@ -114,8 +114,8 @@ set $ws2 "2:"
 set $ws3 "3:"
 #set $ws3 "3:"
 set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
+set $ws5 "5:"
+set $ws6 "6:"
 set $ws7 "7:"
 
 # switch to workspace
@@ -145,10 +145,9 @@ bindsym $mod+Shift+0 move container to workspace 10
 # assing apps to workspaces
 assign [class="Chromium"] $ws1
 # assign [class="Xfce4-terminal"] $ws2
-assign [class="Steam"] $ws3
 assign [class="TelegramDesktop"] $ws4
-assign [class="qBittorrent"] $ws5
-assign [class="Eclipse"] $ws6
+assign [class="Steam"] $ws5
+assign [class="qBittorrent"] $ws6
 assign [class="jetbrains-idea"] $ws6
 assign [class="Filezilla"] $ws7
 
