@@ -206,6 +206,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 bindsym XF86TouchpadToggle exec "~/.config/i3/touchpad_toggle.sh"
 bindsym $mod+space exec "~/.config/i3/layout_toggle.sh"
+bindsym Print exec "flameshot gui"
 
 #ThinkVantage key
 #open dotifle edit script
