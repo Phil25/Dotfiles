@@ -75,4 +75,9 @@ sshserv(){
 	ssh "$1"@185.107.96.220
 }
 
+# wrapper to colorize diff
+cdiff(){
+	diff "$1" "$2" --color=always | less -R
+}
+
 export PS1="\[$(tput setaf 1)\]┌╼ \[$(tput bold)\]\[$(tput setaf 2)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]╼\"; else echo \"\[$(tput setaf 1)\]╼\"; fi) \[$(tput setaf 7)\]\[$(tput sgr0)\]"

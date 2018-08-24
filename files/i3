@@ -147,7 +147,7 @@ assign [class="Chromium"] $ws1
 # assign [class="Xfce4-terminal"] $ws2
 assign [class="TelegramDesktop"] $ws4
 assign [class="Steam"] $ws5
-assign [class="Transmission"] $ws6
+assign [class="transmission"] $ws6
 assign [class="jetbrains-idea"] $ws6
 assign [class="Filezilla"] $ws7
 

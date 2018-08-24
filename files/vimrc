@@ -8,7 +8,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'yuttie/comfortable-motion.vim'
-Plugin 'ying17zi/vim-live-latex-preview.vim'
+Plugin 'StanAngeloff/php.vim'
+" Plugin 'ying17zi/vim-live-latex-preview.vim'
 " Plugin 'artur-shaik/vim-javacomplete2' " Hope not to work in Java!
 call vundle#end()
 filetype plugin indent on
