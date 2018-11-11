@@ -58,6 +58,7 @@ set wildmenu
 set number relativenumber
 
 set history=200
+set tabpagemax=100
 
 " show unfinished commands
 set showcmd
@@ -68,7 +69,7 @@ set scrolloff=8
 " auto indent
 set ai
 
-" tab size
+" tab
 set tabstop=4
 set shiftwidth=4
 
@@ -88,3 +89,5 @@ let g:Tex_DefaultTargetFormat='pdf'
 " au FileType java setlocal omnifunc=javacomplete#Complete
 " au FileType java map <F7> <Plug>(JavaComplete-Imports-AddMissing)
 " au FileType java map <F8> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+autocmd FileType haskell setlocal expandtab " expand tabs to spaces

@@ -31,6 +31,12 @@ alias reloadrc=". ~/.bashrc"
 alias reloadbash=". ~/.bashrc"
 alias reloadbashrc=". ~/.bashrc"
 
+alias gits="git status"
+alias gitd="git diff"
+alias gita="git add"
+alias gitc="git commit -m"
+alias gitp="git push"
+
 # open gedit as a seperate process
 e(){
 	nohup gedit "$1" &>/dev/null &
