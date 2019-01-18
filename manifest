@@ -16,3 +16,4 @@ vimrc				~/.vimrc
 xinitrc				~/.xinitrc
 Xresources			~/.Xresources
 layout_toggle /home/phil/.config/i3/layout_toggle.sh
+zshrc /home/phil/.zshrc

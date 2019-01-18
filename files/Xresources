@@ -2,6 +2,8 @@ xterm*dynamicColors: true
 URxvt*dyanmiccolors: on
 
 URxvt*font: xft:monospace:size=10
+!URxvt.font: xft:Dejavu Sans Mono For Powerline:size=10
+!URxvt*font: xft:powerline:size=9
 URxvt*scrollBar: false
 URxvt*urgentOnBell: false
 URxvt*cursorBlink: true
