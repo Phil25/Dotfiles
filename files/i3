@@ -35,6 +35,11 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt -e ranger
 bindsym $mod+Control+Return exec "~/.config/i3/clone_terminal.sh"
 
+# todo notes
+bindsym $mod+n exec "~/Notes/open_notes.sh"
+bindsym $mod+Control+n exec "urxvt -e vim ~/Notes/todo_notes.md"
+for_window [title="TODOList"] floating enable,resize set 600px 300px,move right 403px, move up 154px
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

@@ -17,3 +17,4 @@ xinitrc				~/.xinitrc
 Xresources			~/.Xresources
 layout_toggle /home/phil/.config/i3/layout_toggle.sh
 zshrc /home/phil/.zshrc
+open_notes.sh /home/phil/Notes/open_notes.sh

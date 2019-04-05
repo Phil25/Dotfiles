@@ -52,41 +52,39 @@ flags = [
 # use when compiling headers. So it will guess. Badly. So C++ headers will be
 # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
 # For a C project, you would set this to 'c' instead of 'c++'.
-'-x',
-'c++',
-'-isystem',
-'../BoostParts',
-'-isystem',
-get_python_inc(),
-'-isystem',
-'../llvm/include',
-'-isystem',
-'../llvm/tools/clang/include',
-'-I',
-'.',
-'-I',
-'./ClangCompleter',
-'-isystem',
-'./tests/gmock/gtest',
-'-isystem',
-'./tests/gmock/gtest/include',
-'-isystem',
-'./tests/gmock',
-'-isystem',
-'./tests/gmock/include',
-'-isystem',
-'./benchmarks/benchmark/include',
-'-isystem',
-'/usr/include/GL',
-'-isystem',
-'/usr/include/GLFW',
+'-x', 'c++',
+'-isystem', '../BoostParts',
+'-isystem', get_python_inc(),
+'-isystem', '../llvm/include',
+'-isystem', '../llvm/tools/clang/include',
+'-I', '.',
+'-I', './ClangCompleter',
+
+# Google test
+'-isystem', './tests/gmock/gtest',
+'-isystem', './tests/gmock/gtest/include',
+'-isystem', './tests/gmock',
+'-isystem', './tests/gmock/include',
+'-isystem', './benchmarks/benchmark/include',
+
+# GLFW
+'-isystem', '/usr/include/GL',
+'-isystem', '/usr/include/GLFW',
+
+# libxml++ and dependencies
+'-isystem', '/usr/lib/glibmm-2.4/include',
+'-isystem', '/usr/lib/glib-2.0/include',
+'-isystem', '/usr/lib/libxml++-3.0/include',
+'-isystem', '/usr/include/glib-2.0',
+'-isystem', '/usr/include/glibmm-2.4',
+'-isystem', '/usr/include/libxml++-3.0',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
 # which is required for compiling the standard library, and to 'c++11' for older
 # versions.
 if platform.system() != 'Windows':
-  flags.append( '-std=c++11' )
+  flags.append( '-std=c++17' )
 
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
