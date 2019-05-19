@@ -130,3 +130,5 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+export DOTNET_CLI_TELEMETRY_OUTPUT=1

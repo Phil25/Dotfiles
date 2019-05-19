@@ -6,9 +6,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
 Plugin 'yuttie/comfortable-motion.vim'
-Plugin 'StanAngeloff/php.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'morhetz/gruvbox'
+" Plugin 'StanAngeloff/php.vim'
 " Plugin 'ying17zi/vim-live-latex-preview.vim'
 " Plugin 'artur-shaik/vim-javacomplete2' " Hope not to work in Java!
 call vundle#end()
@@ -27,13 +28,16 @@ nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
-map <C-n> :NERDTreeToggle<CR>
 
 " colors
 "hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 "hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
-"afterglow anderson angr happy_hacking
-colorscheme angr
+"afterglow anderson angr happy_hacking gruvbox
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italic=1
+let g:gruvbox_invert_signs=1
+let g:gruvbox_invert_selection=0
+colorscheme gruvbox
 
 " allow recursive searching
 set path+=**
@@ -75,6 +79,9 @@ set shiftwidth=4
 
 " word line wrap
 set lbr
+
+" lowering updatetime for gitgutter
+set updatetime=100
 
 " w!! saves any file regardless of starting vim with sudo
 cmap w!! w !sudo tee > /dev/null %
