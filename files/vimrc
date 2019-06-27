@@ -9,6 +9,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
+Plugin 'rhysd/vim-clang-format'
 " Plugin 'StanAngeloff/php.vim'
 " Plugin 'ying17zi/vim-live-latex-preview.vim'
 " Plugin 'artur-shaik/vim-javacomplete2' " Hope not to work in Java!
@@ -22,12 +23,17 @@ let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_key_invoke_completion = '<C-b>'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
 
 " multiple file management
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <C-k> :wincmd k<cr>
+nmap <silent> <C-j> :wincmd j<cr>
+nmap <silent> <C-h> :wincmd h<cr>
+nmap <silent> <C-l> :wincmd l<cr>
+map <F2> :Texplore<cr>
+map <F3> :Vexplore<cr>
+map <F4> :Vexplore!<cr>
 
 " colors
 "hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
@@ -39,17 +45,12 @@ let g:gruvbox_invert_signs=1
 let g:gruvbox_invert_selection=0
 colorscheme gruvbox
 
-" allow recursive searching
-set path+=**
-
 " enable powerline font integration
 "let g:airline_powerline_fonts = 1
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 
 " tabs
-map <F3> :tabp<cr>
-map <F4> :tabn<cr>
 let g:airline#extensions#tabline#enabled = 1
 
 set timeoutlen=1000
@@ -76,6 +77,7 @@ set ai
 " tab
 set tabstop=4
 set shiftwidth=4
+set expandtab
 
 " word line wrap
 set lbr
@@ -93,8 +95,24 @@ map <F7> :! ./move.sh "%"<cr>
 
 let g:Tex_DefaultTargetFormat='pdf'
 
+" clang format
+let g:clang_format#style_options={
+            \ "AccessModifierOffset" : -4,
+            \ "BreakBeforeBraces" : "Allman",
+            \ "AllowShortCaseLabelsOnASingleLine" : "true",
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AllowShortLoopsOnASingleLine" : "true",
+            \ "AlignConsecutiveAssignments" : "true",
+            \ "AlignConsecutiveDeclarations" : "true",
+            \ "ColumnLimit" : 72}
+autocmd FileType c ClangFormatAutoEnable
+autocmd FileType cpp ClangFormatAutoEnable
+
+autocmd FileType js ClangFormatAutoDisable
+
+autocmd FileType sh set expandtab!
+autocmd FileType php set expandtab!
+
 " au FileType java setlocal omnifunc=javacomplete#Complete
 " au FileType java map <F7> <Plug>(JavaComplete-Imports-AddMissing)
 " au FileType java map <F8> <Plug>(JavaComplete-Imports-RemoveUnused)
-
-autocmd FileType haskell setlocal expandtab " expand tabs to spaces
