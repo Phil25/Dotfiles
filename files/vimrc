@@ -113,6 +113,8 @@ autocmd FileType js ClangFormatAutoDisable
 autocmd FileType sh set expandtab!
 autocmd FileType php set expandtab!
 
+autocmd FileType yaml set tabstop=2
+
 " au FileType java setlocal omnifunc=javacomplete#Complete
 " au FileType java map <F7> <Plug>(JavaComplete-Imports-AddMissing)
 " au FileType java map <F8> <Plug>(JavaComplete-Imports-RemoveUnused)
